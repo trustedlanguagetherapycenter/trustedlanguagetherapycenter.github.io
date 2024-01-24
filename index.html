@@ -14,7 +14,25 @@
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
   <title> TLTC </title>
-
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+ 
+    <script type="text/javascript">
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "trustedlanguagetherapycenter@gmail.com",
+                Password: "Tanzil@123",
+                To: 'trustedlanguagetherapycenter@gmail.com',
+                From: "trustedlanguagetherapycenter@gmail.com",
+                Subject: "Sending Email using javascript",
+                Body: "Well that was easy!!",
+            })
+                .then(function (message) {
+                    alert("mail sent successfully")
+                });
+        }
+    </script>
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
@@ -426,7 +444,7 @@ We are a dedicated team of language therapists, educators, and professionals who
     </h2>
       
 
-  <form action="action_page.php">
+  <form>
     <input type="text" id="fname" name="firstname" placeholder="Child Name">
     <input type="text" id="lname" name="lastname" placeholder="Your Name">
     <input type="text" id="lname" name="lastname" placeholder="Phone Number">
@@ -450,7 +468,7 @@ We are a dedicated team of language therapists, educators, and professionals who
 	<option value="australia">Greater Noida</option>
 	<option value="australia">Mahagun Mywoods, Greater Noida West</option>
     </select>
-    <button type="submit">Submit</button>
+    <button type="submit" onclick="sendEmail()">Submit</button>
  </form>
 </div>
 </section>
