@@ -18,7 +18,7 @@
     </script>
  
     <script type="text/javascript">
-        function sendEmail() {
+        function sendEmailOld() {
             Email.send({
                 Host: "smtp.gmail.com",
                 Username: "trustedlanguagetherapycenter@gmail.com",
@@ -32,6 +32,37 @@
                     alert("mail sent successfully")
                 });
         }
+function openMailApplication() { window.location.href = 'mailto:TLTC.GNW@gmail.com'; }
+
+
+function sendMail() {
+    var to = "trustedlanguagetherapycenter@gmail.com";
+    var subject = "HTML formatted email";
+    var content = "";
+    content += "<html><body>";
+    content += "<table width='100%'><tr><td>"; // Outer table
+    content += "<table width='60%'>"; // Nested table
+    content += "<tr><td width='70%'>This is a row</td><td width='30%'>999999</td></tr>";
+    content += "<tr><td width='70%'>So is this</td><td width='30%'>9999</td></tr>";
+    content += "</table>";
+    content += "</td></tr></table>";
+    content += "</body></html>";
+    var email =
+            "From: 'me'\r\n" +
+            "To: " + to + "\r\n" +
+            "Subject: " + subject + "\r\n" +
+            "Content-Type: text/html; charset=utf-8\r\n" +
+            "Content-Transfer-Encoding: quoted-printable\r\n\r\n" +
+            content;
+    var base64EncodedEmail = window.btoa(email).replace(/\+/g, "-").replace(/\//g, "_");
+    var request = gapi.client.gmail.users.messages.send({
+        "userId": "me",
+        "resource": {
+            "raw": base64EncodedEmail
+        }
+    });
+    request.execute();
+}
     </script>
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -737,7 +768,7 @@ We are a dedicated team of language therapists, educators, and professionals who
                   +91 7814523826
                 </span>
               </a>
-              <a href="">
+              <a onclick="openMailApplication()">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
                   TLTC.GNW@gmail.com
@@ -763,10 +794,16 @@ We are a dedicated team of language therapists, educators, and professionals who
         <div class="col-md-6 col-lg-3 info_col">
           <div class="info_detail">
             <h4>
-              Info
+              Opening Timing
             </h4>
             <p>
-              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
+Mon:10:00 am – 9:00 pm<br>
+Tue:10:00 am – 9:00 pm<br>
+Wed:10:00 am – 9:00 pm<br>
+Thu:10:00 am – 9:00 pm<br>
+Fri:10:00 am – 9:00 pm<br>
+Sat:10:00 am – 9:00 pm<br>
+Sun:Closed
             </p>
           </div>
         </div>
