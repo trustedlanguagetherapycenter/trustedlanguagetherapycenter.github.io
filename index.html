@@ -18,51 +18,20 @@
     </script>
  
     <script type="text/javascript">
-        function sendEmailOld() {
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "trustedlanguagetherapycenter@gmail.com",
-                Password: "Tanzil@123",
-                To: 'trustedlanguagetherapycenter@gmail.com',
-                From: "trustedlanguagetherapycenter@gmail.com",
-                Subject: "Sending Email using javascript",
-                Body: "Well that was easy!!",
-            })
-                .then(function (message) {
-                    alert("mail sent successfully")
-                });
-        }
+	function sendDetails(){
+	   const fname = document.getElementById("fname").value;
+	   const pname = document.getElementById("pname").value;
+  	   const pnumber = document.getElementById("pnumber").value;
+           const email = document.getElementById("email").value;
+
+  	   const therapy = document.getElementById("therapy").value;
+           const area = document.getElementById("area").value;
+
+	   const win = window.open(`https://wa.me/7814523826?text=Hello TLTC%0a%0aChild name: ${fname}%0aParent Name: ${pname}%0aPhone: ${pnumber}%0aEmail: ${email}%0aTherapy: ${therapy}%0aArea: ${area}`, '_blank');
+	}
 function openMailApplication() { window.location.href = 'mailto:TLTC.GNW@gmail.com'; }
 
 
-function sendMail() {
-    var to = "trustedlanguagetherapycenter@gmail.com";
-    var subject = "HTML formatted email";
-    var content = "";
-    content += "<html><body>";
-    content += "<table width='100%'><tr><td>"; // Outer table
-    content += "<table width='60%'>"; // Nested table
-    content += "<tr><td width='70%'>This is a row</td><td width='30%'>999999</td></tr>";
-    content += "<tr><td width='70%'>So is this</td><td width='30%'>9999</td></tr>";
-    content += "</table>";
-    content += "</td></tr></table>";
-    content += "</body></html>";
-    var email =
-            "From: 'me'\r\n" +
-            "To: " + to + "\r\n" +
-            "Subject: " + subject + "\r\n" +
-            "Content-Type: text/html; charset=utf-8\r\n" +
-            "Content-Transfer-Encoding: quoted-printable\r\n\r\n" +
-            content;
-    var base64EncodedEmail = window.btoa(email).replace(/\+/g, "-").replace(/\//g, "_");
-    var request = gapi.client.gmail.users.messages.send({
-        "userId": "me",
-        "resource": {
-            "raw": base64EncodedEmail
-        }
-    });
-    request.execute();
-}
     </script>
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -477,29 +446,29 @@ We are a dedicated team of language therapists, educators, and professionals who
 
   <form>
     <input type="text" id="fname" name="firstname" placeholder="Child Name">
-    <input type="text" id="lname" name="lastname" placeholder="Your Name">
-    <input type="text" id="lname" name="lastname" placeholder="Phone Number">
-    <input type="text" id="lname" name="lastname" placeholder="Email">
-    <select id="country" name="Select Your Requirment">
-	<option value="australia">Select Your Requirment</option>
-	<option value="australia">ABA Therapy</option>
-	<option value="australia">Special Education</option>
-	<option value="australia">Speech Therapy</option>
-	<option value="australia">Fine Motor Skills</option>
-	<option value="australia">Gross Motor Skills</option>
-	<option value="australia">Handwriting Problem</option>
-	<option value="australia">Behaviour Modification</option>
-	<option value="australia">Hand Function Training</option>
-	<option value="australia">Sensory Integration Therapy</option>
+    <input type="text" id="pname" name="pname" placeholder="Your Name">
+    <input type="text" id="pnumber" name="phone" placeholder="Phone Number">
+    <input type="text" id="email" name="email" placeholder="Email">
+    <select id="therapy" name="therapy">
+	<option value="NA">Select Your Requirment</option>
+	<option value="ABA Therapy">ABA Therapy</option>
+	<option value="Special Education">Special Education</option>
+	<option value="Speech Therapy">Speech Therapy</option>
+	<option value="Fine Motor Skills">Fine Motor Skills</option>
+	<option value="Gross Motor Skills">Gross Motor Skills</option>
+	<option value="Handwriting Problem">Handwriting Problem</option>
+	<option value="Behaviour Modification">Behaviour Modification</option>
+	<option value="Hand Function Training">Hand Function Training</option>
+	<option value="Sensory Integration Therapy">Sensory Integration Therapy</option>
     </select>
-    <select id="country" name="Select Service Area">
-	<option value="australia">Select Service Area</option>
-	<option value="australia">Gaur City 1, Greater Noida West</option>
-	<option value="australia">Gaur City 2, Greater Noida West</option>
-	<option value="australia">Greater Noida</option>
-	<option value="australia">Mahagun Mywoods, Greater Noida West</option>
+    <select id="area" name="area">
+	<option value="NA">Select Service Area</option>
+	<option value="Gaur City 1, Greater Noida West">Gaur City 1, Greater Noida West</option>
+	<option value="Gaur City 2, Greater Noida West">Gaur City 2, Greater Noida West</option>
+	<option value="Greater Noida">Greater Noida</option>
+	<option value="Mahagun Mywoods, Greater Noida West">Mahagun Mywoods, Greater Noida West</option>
     </select>
-    <button type="submit" onclick="sendEmail()">Submit</button>
+    <button type="submit" onclick="sendDetails()">Send on Whatsapp</button>
  </form>
 </div>
 </section>
