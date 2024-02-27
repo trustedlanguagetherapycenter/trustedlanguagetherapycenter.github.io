@@ -820,6 +820,7 @@ width: 100%;
 
 .client_section .box .img-box img {
   border-radius: 100%;
+	border: 1px solid #555;
 }
 
 .client_section .box .client_id {
